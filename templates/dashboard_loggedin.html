@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block body %} 
+  <!-- Page Header -->
+ <header class="masthead" style="background-image: url('{{url_for('static',filename='img/home-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        	
+        	
+
+       
+          <div class="site-heading">
+            <h1>Admin Panel</h1>
+            <span class="subheading"> Manage your Posts </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style type="text/css">
+    	#add,#logout{
+
+    		margin:10px 10px;
+    		padding: auto;
+
+    	}
+    	a{
+    		color: white;
+    	}
+    </style>
+  </header>
+
+  
+        
+        <!-- Pager -->
+        <div class="clearfix">
+          <p> <h4>Upload File</h4></p>
+          <form action='/uploader' method='post' enctype="multipart/form-data">
+          	<input type="file" name="file" placeholder="choosefile">
+          	<button  class='btn btn-primary' id='submit'>Submit</button>
+          </form>
+          <br>
+          
+          <table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Title</th>
+        <th>Tag_line</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post_1 in post%}
+      <tr>
+        <td>{{post_1.sno}}</td>
+        <td>{{post_1.title}}</td>
+        <td>{{post_1.tag_line}}</td>
+        <td><a href="/edit/{{post_1.sno}}"><button class="btn btn-primary float-right">Edit</button></a></td>
+        <td><a href='/delete/{{post_1.sno}}'><button class="btn btn-primary float-right">Delete</button></a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  		<div>
+  		 <h1 class='none'>Basic Actions</h1>
+  		</div>
+          <button class="btn btn-primary float-left" id='add'><a href='/edit/0'>ADD POST</a></button>
+          <button class="btn btn-primary float-left" id='logout'><a href='/logout'>LOG OUT</a></button>
+
+
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  {% endblock %}
