@@ -4,7 +4,7 @@
     "gmail-user": "santhoshvaraprasad7@gmail.com",
     "local_server": "True",
     "local_uri": "mysql://root:123456@localhost/db_sample",
-    "password": "mynameisdhoni@7",
+    "password": "*****************",
     "prod_uri": "mysql://root:123456@localhost/its_show_time",
     "no_of_posts":2,
     "login_logo": "bootstraplogo.svg",
